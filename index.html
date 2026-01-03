@@ -39,35 +39,37 @@
             text-align: left;
         }
 
-        /* 內部排版樣式 */
-        .text-xs { font-size: 11px !important; }
-        .text-sm { font-size: 13px !important; }
-        .text-base { font-size: 14px !important; }
-        .text-lg { font-size: 16px !important; }
-        .text-xl { font-size: 20px !important; }
-        .text-2xl { font-size: 24px !important; }
-        .text-3xl { font-size: 32px !important; }
+        /* 【字體放大設定】 
+           全面提升字體大小以增加易讀性
+        */
+        .text-xs { font-size: 12.5px !important; line-height: 1.5; } /* 內文列表 */
+        .text-sm { font-size: 14.5px !important; line-height: 1.5; } /* 小標題 */
+        .text-base { font-size: 16px !important; }  /* 區塊標題 */
+        .text-lg { font-size: 18px !important; }
+        .text-xl { font-size: 22px !important; }
+        .text-2xl { font-size: 26px !important; }
+        .text-3xl { font-size: 36px !important; }
 
         .section-title {
-            font-size: 16px !important;
+            font-size: 18px !important; /* 加大區塊標題 */
             font-weight: 700;
             color: #292524;
-            border-bottom: 2px solid #a7f3d0;
-            padding-bottom: 4px;
-            margin-bottom: 12px;
+            border-bottom: 3px solid #a7f3d0; /* 線條稍微加粗 */
+            padding-bottom: 6px;
+            margin-bottom: 14px;
             display: flex;
             align-items: center;
         }
-        .section-title i { color: #059669; margin-right: 8px; }
+        .section-title i { color: #059669; margin-right: 10px; font-size: 20px; }
 
         ul.custom-list li {
-            margin-bottom: 4px;
+            margin-bottom: 5px; /* 增加列表間距 */
             display: flex;
             align-items: flex-start;
         }
         ul.custom-list li i {
-            margin-top: 4px;
-            margin-right: 6px;
+            margin-top: 5px;
+            margin-right: 8px;
             flex-shrink: 0;
         }
 
@@ -99,16 +101,13 @@
     <!-- 簡歷本體 (A4) -->
     <div id="resume-paper">
         
-        <!-- Header (高度 200px) -->
-        <header class="bg-gradient-to-r from-emerald-600 to-teal-500 text-white p-8 relative overflow-hidden flex items-center gap-6" style="height: 200px;">
+        <!-- Header (高度微調為 190px 以騰出空間給放大的字體) -->
+        <header class="bg-gradient-to-r from-emerald-600 to-teal-500 text-white p-8 relative overflow-hidden flex items-center gap-8" style="height: 190px;">
             <div class="absolute -top-10 -right-10 w-48 h-48 bg-white opacity-10 rounded-full"></div>
             
-            <!-- 照片 (放大為 140px) -->
+            <!-- 照片 (140px) -->
             <div class="w-[140px] h-[140px] bg-white rounded-full flex items-center justify-center text-emerald-600 shadow-xl shrink-0 border-4 border-emerald-100 relative overflow-hidden">
                 <i class="fas fa-user text-6xl absolute z-0"></i>
-                <!-- 
-                   修正：已替換為 GitHub 的圖片連結。
-                -->
                 <img src="https://raw.githubusercontent.com/Luyun1224/CHEN/main/984588.jpg" 
                      class="w-full h-full object-cover relative z-10" 
                      alt="陳巧慧"
@@ -118,35 +117,35 @@
             <div class="flex-1 z-10">
                 <h1 class="text-3xl font-bold tracking-wide mb-2">陳巧慧</h1>
                 <p class="text-emerald-50 text-xl font-medium mb-3">樂齡生活產業專家 | 專業培訓講師</p>
-                <div class="inline-block bg-white/10 px-4 py-1.5 rounded text-sm opacity-95 italic border border-white/20 tracking-wide">
+                <div class="inline-block bg-white/10 px-5 py-2 rounded text-base opacity-95 italic border border-white/20 tracking-wide">
                     「多元學習活躍老化，健康老化翻轉人生」
                 </div>
             </div>
         </header>
 
-        <!-- 內容區 (Padding 30px 40px) -->
-        <div style="padding: 30px 40px;">
+        <!-- 內容區 (Padding 調整) -->
+        <div style="padding: 25px 40px;">
 
             <!-- 核心理念 -->
-            <section class="mb-6 text-center bg-stone-50 py-3 rounded-lg border border-stone-200">
+            <section class="mb-6 text-center bg-stone-50 py-4 rounded-lg border border-stone-200 shadow-sm">
                 <h2 class="text-base font-bold text-emerald-700 mb-1 flex items-center justify-center gap-3">
-                    <span class="w-8 h-0.5 bg-emerald-700 rounded-full"></span>
+                    <span class="w-10 h-1 bg-emerald-700 rounded-full"></span>
                     核心理念
-                    <span class="w-8 h-0.5 bg-emerald-700 rounded-full"></span>
+                    <span class="w-10 h-1 bg-emerald-700 rounded-full"></span>
                 </h2>
-                <p class="text-base text-stone-700 font-medium italic mt-1">
+                <p class="text-lg text-stone-700 font-medium italic mt-1">
                     「啟發五感共鳴，提昇生活價值，促進人際關係。」
                 </p>
             </section>
 
-            <!-- 專業領域 -->
+            <!-- 專業領域 (2x2 對稱網格) -->
             <section class="mb-8">
                 <div class="section-title border-l-4 border-emerald-500 pl-3 !border-b-0">專業領域</div>
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-2 gap-5"> <!-- 增加間距 -->
                     <!-- 園藝 -->
-                    <div class="bg-white p-3 rounded-lg border border-emerald-100 flex items-start gap-3 shadow-sm">
-                        <div class="bg-emerald-100 w-10 h-10 rounded-full flex items-center justify-center shrink-0 text-emerald-700 mt-0.5">
-                            <i class="fas fa-leaf text-base"></i>
+                    <div class="bg-white p-4 rounded-lg border border-emerald-100 flex items-start gap-4 shadow-sm">
+                        <div class="bg-emerald-100 w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-emerald-700 mt-0.5">
+                            <i class="fas fa-leaf text-lg"></i>
                         </div>
                         <div>
                             <h4 class="font-bold text-sm text-emerald-800 mb-1">園藝輔療</h4>
@@ -154,9 +153,9 @@
                         </div>
                     </div>
                     <!-- 食農 -->
-                    <div class="bg-white p-3 rounded-lg border border-orange-100 flex items-start gap-3 shadow-sm">
-                        <div class="bg-orange-100 w-10 h-10 rounded-full flex items-center justify-center shrink-0 text-orange-700 mt-0.5">
-                            <i class="fas fa-utensils text-base"></i>
+                    <div class="bg-white p-4 rounded-lg border border-orange-100 flex items-start gap-4 shadow-sm">
+                        <div class="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-orange-700 mt-0.5">
+                            <i class="fas fa-utensils text-lg"></i>
                         </div>
                         <div>
                             <h4 class="font-bold text-sm text-orange-800 mb-1">食農教育</h4>
@@ -164,9 +163,9 @@
                         </div>
                     </div>
                     <!-- 音樂 -->
-                    <div class="bg-white p-3 rounded-lg border border-rose-100 flex items-start gap-3 shadow-sm">
-                        <div class="bg-rose-100 w-10 h-10 rounded-full flex items-center justify-center shrink-0 text-rose-700 mt-0.5">
-                            <i class="fas fa-music text-base"></i>
+                    <div class="bg-white p-4 rounded-lg border border-rose-100 flex items-start gap-4 shadow-sm">
+                        <div class="bg-rose-100 w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-rose-700 mt-0.5">
+                            <i class="fas fa-music text-lg"></i>
                         </div>
                         <div>
                             <h4 class="font-bold text-sm text-rose-800 mb-1">音樂輔療</h4>
@@ -174,9 +173,9 @@
                         </div>
                     </div>
                     <!-- 認知 -->
-                    <div class="bg-white p-3 rounded-lg border border-blue-100 flex items-start gap-3 shadow-sm">
-                        <div class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center shrink-0 text-blue-700 mt-0.5">
-                            <i class="fas fa-brain text-base"></i>
+                    <div class="bg-white p-4 rounded-lg border border-blue-100 flex items-start gap-4 shadow-sm">
+                        <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-blue-700 mt-0.5">
+                            <i class="fas fa-brain text-lg"></i>
                         </div>
                         <div>
                             <h4 class="font-bold text-sm text-blue-800 mb-1">高齡認知 & 體適能</h4>
@@ -186,14 +185,14 @@
                 </div>
             </section>
 
-            <!-- 雙欄詳細內容 -->
-            <div style="display: flex;">
+            <!-- 雙欄詳細內容 (改為 50% - 50% 對稱佈局) -->
+            <div style="display: flex; gap: 30px;">
                 
-                <!-- 左欄: 學歷 + 經歷 (38%) -->
-                <div style="width: 38%; padding-right: 20px;">
+                <!-- 左欄: 學歷 + 經歷 (50%) -->
+                <div style="flex: 1;">
                     <section class="mb-6">
                         <div class="section-title"><i class="fas fa-graduation-cap"></i>學歷</div>
-                        <div class="pl-1">
+                        <div class="pl-2">
                             <h4 class="font-bold text-sm text-stone-800">崑山科技大學</h4>
                             <p class="text-xs text-stone-600 mt-1">樂齡生活產業管理<br>學士學位學程</p>
                         </div>
@@ -201,57 +200,57 @@
 
                     <section>
                         <div class="section-title"><i class="fas fa-briefcase"></i>現任與經歷</div>
-                        <ul class="custom-list text-xs text-stone-700 pl-1">
+                        <ul class="custom-list text-xs text-stone-700 pl-2">
                             <li>
-                                <i class="fas fa-check-circle text-emerald-500 text-[10px]"></i>
+                                <i class="fas fa-check-circle text-emerald-500 text-[12px]"></i>
                                 <span>台南市社會局銀法衣缽人才資料庫 運動休閒類講師</span>
                             </li>
                             <li>
-                                <i class="fas fa-check-circle text-emerald-500 text-[10px]"></i>
-                                <span>台南區銀髮教學服務合作社行動講師</span>
+                                <i class="fas fa-check-circle text-emerald-500 text-[12px]"></i>
+                                <span>台南區銀髮教學服務合作社<br>行動講師</span>
                             </li>
                             <li>
-                                <i class="fas fa-check-circle text-emerald-500 text-[10px]"></i>
+                                <i class="fas fa-check-circle text-emerald-500 text-[12px]"></i>
                                 <span>奇美醫院社區關懷行動講師</span>
                             </li>
                             <li>
-                                <i class="fas fa-check-circle text-emerald-500 text-[10px]"></i>
+                                <i class="fas fa-check-circle text-emerald-500 text-[12px]"></i>
                                 <span>台灣標準化病人協會 理事</span>
                             </li>
                             <li>
-                                <i class="fas fa-check-circle text-emerald-500 text-[10px]"></i>
+                                <i class="fas fa-check-circle text-emerald-500 text-[12px]"></i>
                                 <span>奇美醫院標準化病人訓練師</span>
                             </li>
                             <li>
-                                <i class="fas fa-check-circle text-emerald-500 text-[10px]"></i>
+                                <i class="fas fa-check-circle text-emerald-500 text-[12px]"></i>
                                 <span>台南市社會局家庭關懷訪視員</span>
                             </li>
                         </ul>
                     </section>
                 </div>
 
-                <!-- 右欄: 認證 (62%) -->
-                <div style="width: 62%;">
+                <!-- 右欄: 認證 (50%) -->
+                <div style="flex: 1;">
                     <section>
                         <div class="section-title"><i class="fas fa-certificate"></i>專業認證與進修</div>
                         
-                        <div class="space-y-4">
+                        <div class="space-y-5">
                             <!-- Highlight Box -->
-                            <div class="bg-emerald-50 border-l-4 border-emerald-500 p-3 rounded-r-md">
+                            <div class="bg-emerald-50 border-l-4 border-emerald-500 p-4 rounded-r-md">
                                 <h4 class="font-bold text-emerald-800 text-sm mb-2">★ 2025 年度最新進修</h4>
                                 <ul class="text-xs text-stone-700 space-y-1">
                                     <li class="flex items-center"><i class="fas fa-angle-right text-emerald-500 mr-2"></i>樂齡繩梯認知功能訓練</li>
                                     <li class="flex items-center"><i class="fas fa-angle-right text-emerald-500 mr-2"></i>第46期防災士培訓合格</li>
-                                    <li class="flex items-center"><i class="fas fa-angle-right text-emerald-500 mr-2"></i>創造性藝術治療聯合研討會研習</li>
+                                    <li class="flex items-center"><i class="fas fa-angle-right text-emerald-500 mr-2"></i>創造性藝術治療聯合研討會</li>
                                 </ul>
                             </div>
 
                             <!-- Group 1 -->
                             <div>
                                 <h4 class="font-bold text-stone-800 text-sm mb-2 flex items-center">
-                                    <span class="w-1.5 h-1.5 bg-stone-400 rounded-full mr-2"></span>療癒與輔療認證
+                                    <span class="w-2 h-2 bg-stone-400 rounded-full mr-2"></span>療癒與輔療認證
                                 </h4>
-                                <ul class="custom-list text-xs text-stone-600 pl-3 border-l border-stone-200 ml-1">
+                                <ul class="custom-list text-xs text-stone-600 pl-4 border-l-2 border-stone-200 ml-1">
                                     <li><span>中華環境養生會 國際園藝治療師認證</span></li>
                                     <li><span>中華環境養生會 國際休閒治療師認證</span></li>
                                     <li><span>教育部非正規課程認證「音樂芬多精」樂齡師資</span></li>
@@ -264,9 +263,9 @@
                             <!-- Group 2 -->
                             <div>
                                 <h4 class="font-bold text-stone-800 text-sm mb-2 flex items-center">
-                                    <span class="w-1.5 h-1.5 bg-stone-400 rounded-full mr-2"></span>照護與健康指導
+                                    <span class="w-2 h-2 bg-stone-400 rounded-full mr-2"></span>照護與健康指導
                                 </h4>
-                                <ul class="custom-list text-xs text-stone-600 pl-3 border-l border-stone-200 ml-1">
+                                <ul class="custom-list text-xs text-stone-600 pl-4 border-l-2 border-stone-200 ml-1">
                                     <li><span>長期照顧服務員合格</span></li>
                                     <li><span>台灣樂齡健康發展協會 樂齡體適能初級指導員</span></li>
                                     <li><span>「我i運動健健腦」方案專業指導員培訓合格</span></li>
