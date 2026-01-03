@@ -32,29 +32,30 @@
             height: 297mm;
             background-color: white;
             margin: 0 auto; /* 水平置中 */
-            position: relative;
             box-shadow: 0 0 20px rgba(0,0,0,0.5);
             overflow: hidden;
             color: #333;
             text-align: left;
+            
+            /* 【關鍵修正】使用 Flexbox 佈局，確保頁尾自動推到最下方且不蓋住內容 */
+            display: flex;
+            flex-direction: column;
         }
 
-        /* 【字體放大設定】 
-           全面提升字體大小以增加易讀性
-        */
-        .text-xs { font-size: 12.5px !important; line-height: 1.5; } /* 內文列表 */
-        .text-sm { font-size: 14.5px !important; line-height: 1.5; } /* 小標題 */
-        .text-base { font-size: 16px !important; }  /* 區塊標題 */
+        /* 字體設定 */
+        .text-xs { font-size: 12.5px !important; line-height: 1.6; } /* 稍微增加行高避免擁擠 */
+        .text-sm { font-size: 14.5px !important; line-height: 1.5; }
+        .text-base { font-size: 16px !important; }
         .text-lg { font-size: 18px !important; }
         .text-xl { font-size: 22px !important; }
         .text-2xl { font-size: 26px !important; }
         .text-3xl { font-size: 36px !important; }
 
         .section-title {
-            font-size: 18px !important; /* 加大區塊標題 */
+            font-size: 18px !important;
             font-weight: 700;
             color: #292524;
-            border-bottom: 3px solid #a7f3d0; /* 線條稍微加粗 */
+            border-bottom: 3px solid #a7f3d0;
             padding-bottom: 6px;
             margin-bottom: 14px;
             display: flex;
@@ -63,7 +64,7 @@
         .section-title i { color: #059669; margin-right: 10px; font-size: 20px; }
 
         ul.custom-list li {
-            margin-bottom: 5px; /* 增加列表間距 */
+            margin-bottom: 6px; /* 增加列表間距 */
             display: flex;
             align-items: flex-start;
         }
@@ -71,6 +72,12 @@
             margin-top: 5px;
             margin-right: 8px;
             flex-shrink: 0;
+        }
+
+        /* 內容區域自動伸展 */
+        .content-area {
+            flex: 1; /* 佔據剩餘空間 */
+            padding: 25px 40px;
         }
 
         /* 列印樣式 */
@@ -101,11 +108,11 @@
     <!-- 簡歷本體 (A4) -->
     <div id="resume-paper">
         
-        <!-- Header (高度微調為 190px 以騰出空間給放大的字體) -->
-        <header class="bg-gradient-to-r from-emerald-600 to-teal-500 text-white p-8 relative overflow-hidden flex items-center gap-8" style="height: 190px;">
+        <!-- Header -->
+        <header class="bg-gradient-to-r from-emerald-600 to-teal-500 text-white p-8 relative overflow-hidden flex items-center gap-8 flex-none" style="height: 190px;">
             <div class="absolute -top-10 -right-10 w-48 h-48 bg-white opacity-10 rounded-full"></div>
             
-            <!-- 照片 (140px) -->
+            <!-- 照片 -->
             <div class="w-[140px] h-[140px] bg-white rounded-full flex items-center justify-center text-emerald-600 shadow-xl shrink-0 border-4 border-emerald-100 relative overflow-hidden">
                 <i class="fas fa-user text-6xl absolute z-0"></i>
                 <img src="https://raw.githubusercontent.com/Luyun1224/CHEN/main/984588.jpg" 
@@ -123,8 +130,8 @@
             </div>
         </header>
 
-        <!-- 內容區 (Padding 調整) -->
-        <div style="padding: 25px 40px;">
+        <!-- 內容區 -->
+        <div class="content-area">
 
             <!-- 核心理念 -->
             <section class="mb-6 text-center bg-stone-50 py-4 rounded-lg border border-stone-200 shadow-sm">
@@ -141,7 +148,7 @@
             <!-- 專業領域 (2x2 對稱網格) -->
             <section class="mb-8">
                 <div class="section-title border-l-4 border-emerald-500 pl-3 !border-b-0">專業領域</div>
-                <div class="grid grid-cols-2 gap-5"> <!-- 增加間距 -->
+                <div class="grid grid-cols-2 gap-5">
                     <!-- 園藝 -->
                     <div class="bg-white p-4 rounded-lg border border-emerald-100 flex items-start gap-4 shadow-sm">
                         <div class="bg-emerald-100 w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-emerald-700 mt-0.5">
@@ -185,7 +192,7 @@
                 </div>
             </section>
 
-            <!-- 雙欄詳細內容 (改為 50% - 50% 對稱佈局) -->
+            <!-- 雙欄詳細內容 -->
             <div style="display: flex; gap: 30px;">
                 
                 <!-- 左欄: 學歷 + 經歷 (50%) -->
@@ -207,7 +214,8 @@
                             </li>
                             <li>
                                 <i class="fas fa-check-circle text-emerald-500 text-[12px]"></i>
-                                <span>台南區銀髮教學服務合作社<br>行動講師</span>
+                                <!-- 確保單行顯示 -->
+                                <span class="whitespace-nowrap">台南區銀髮教學服務合作社行動講師</span>
                             </li>
                             <li>
                                 <i class="fas fa-check-circle text-emerald-500 text-[12px]"></i>
@@ -278,12 +286,13 @@
 
             </div>
 
-            <!-- Footer -->
-            <footer class="absolute bottom-0 left-0 w-full text-center text-stone-400 text-xs py-4 border-t border-stone-100 bg-white">
-                <p>&copy; 陳巧慧 簡歷 Portfolio | 啟發 • 陪伴 • 活躍老化</p>
-            </footer>
-
         </div>
+
+        <!-- Footer (使用與 Header 相同的綠色背景) -->
+        <footer class="flex-none bg-gradient-to-r from-emerald-600 to-teal-500 text-white text-center text-xs py-4">
+            <p>&copy; 陳巧慧 簡歷 Portfolio | 啟發 • 陪伴 • 活躍老化</p>
+        </footer>
+
     </div>
 
 </body>
