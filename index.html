@@ -71,7 +71,7 @@
             flex-shrink: 0;
         }
 
-        /* 列印樣式 (保留以防您之後想用 Ctrl+P 列印) */
+        /* 列印樣式 */
         @media print {
             @page {
                 size: A4;
@@ -103,15 +103,13 @@
         <header class="bg-gradient-to-r from-emerald-600 to-teal-500 text-white p-8 relative overflow-hidden flex items-center gap-6" style="height: 200px;">
             <div class="absolute -top-10 -right-10 w-48 h-48 bg-white opacity-10 rounded-full"></div>
             
-            <!-- 照片 (110px) -->
-            <div class="w-[110px] h-[110px] bg-white rounded-full flex items-center justify-center text-emerald-600 shadow-xl shrink-0 border-4 border-emerald-100 relative overflow-hidden">
-                <i class="fas fa-user text-5xl absolute z-0"></i>
+            <!-- 照片 (放大為 140px) -->
+            <div class="w-[140px] h-[140px] bg-white rounded-full flex items-center justify-center text-emerald-600 shadow-xl shrink-0 border-4 border-emerald-100 relative overflow-hidden">
+                <i class="fas fa-user text-6xl absolute z-0"></i>
                 <!-- 
-                   修正說明：
-                   1. 移除了 crossorigin="anonymous"，這通常是導致 Google Drive 圖片在一般瀏覽下空白的主因。
-                   2. 使用了 drive.google.com/uc?export=view 的直連格式。
+                   修正：已替換為 GitHub 的圖片連結。
                 -->
-                <img src="https://drive.google.com/uc?export=view&id=1CZDNGKYHg146kr94jnNkQnUtbuzWdYiX" 
+                <img src="https://raw.githubusercontent.com/Luyun1224/CHEN/main/984588.jpg" 
                      class="w-full h-full object-cover relative z-10" 
                      alt="陳巧慧"
                      onerror="this.style.display='none'">
